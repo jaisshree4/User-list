@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil Nadu User List</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+    #userContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .user-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 15px;
+        padding: 20px;
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .user-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+    h3 {
+        margin: 0 0 10px;
+        font-size: 1.3em;
+    }
+    p {
+        margin: 5px 0;
+        font-size: 0.95em;
+        opacity: 0.9;
+    }
+    button {
+        background: rgba(255, 255, 255, 0.25);
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+        border-radius: 25px;
+        display: block;
+        margin: 15px auto;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: background 0.3s ease;
+    }
+    button:hover {
+        background: rgba(255, 255, 255, 0.35);
+    }
+    .error {
+        color: #ffdddd;
+        text-align: center;
+        font-size: 1.1em;
+        margin-top: 15px;
+    }
+</style>
+</head>
+<body>
+
+<h1>📋Users List</h1>
+<button id="reloadBtn">🔄 Reload Data</button>
+<div id="userContainer"></div>
+
+<script>
+// Custom Tamil Nadu-style user dataset
+const tamilNaduUsers = [
+    { name: "Arun Kumar", email: "arun.kumar@tnmail.com", address: { street: "MG Road", city: "Chennai" } },
+    { name: "Priya S", email: "priya.s@tnmail.com", address: { street: "Anna Salai", city: "Coimbatore" } },
+    { name: "Ravi Shankar", email: "ravi.shankar@tnmail.com", address: { street: "NSC Bose Road", city: "Madurai" } },
+    { name: "Lakshmi Narayanan", email: "lakshmi.n@tnmail.com", address: { street: "Gandhi Street", city: "Salem" } },
+    { name: "Suresh Kumar", email: "suresh.kumar@tnmail.com", address: { street: "Kamarajar Road", city: "Tiruchirappalli" } },
+    { name: "Divya R", email: "divya.r@tnmail.com", address: { street: "Beach Road", city: "Thoothukudi" } },
+    { name: "Vignesh P", email: "vignesh.p@tnmail.com", address: { street: "Rajaji Street", city: "Vellore" } },
+    { name: "Meena S", email: "meena.s@tnmail.com", address: { street: "Periyar Salai", city: "Erode" } }
+];
+
+// Function to display Tamil Nadu data
+function displayUsers(users) {
+    const container = document.getElementById('userContainer');
+    container.innerHTML = ''; // Clear previous data
+
+    users.forEach(user => {
+        let card = document.createElement('div');
+        card.className = 'user-card';
+        card.innerHTML = `
+            <h3>👤 Name: ${user.name}</h3>
+            <p>📧 Email: <strong>${user.email}</strong></p>
+            <p>🏠 Address: ${user.address.street}, ${user.address.city}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Reload button
+document.getElementById('reloadBtn').addEventListener('click', () => displayUsers(tamilNaduUsers));
+
+// First load
+displayUsers(tamilNaduUsers);
+</script>
+
+</body>
+</html>
