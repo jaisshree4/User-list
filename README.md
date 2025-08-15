@@ -10,4 +10,4 @@ Designed with a modern glassmorphism style and a reload button for refreshing th
 - 💻 Pure **HTML, CSS, JavaScript** — no frameworks needed.
 - 🌐 Can be hosted easily on **GitHub Pages**.
 
-## 📂 Project Structure
+
